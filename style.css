@@ -269,7 +269,9 @@ a:focus-visible { background-color: var(--color-focus-fill); color: var(--color-
   line-height: 1.7;
 }
 .banner[hidden] { display: none; }
-.banner svg { flex-shrink: 0; width: 1.5rem; height: 1.7em; color: var(--banner-color); }
+/* アイコンの入れ物を flex にし、文字のベースラインに乗って上にずれないようにする */
+.banner > [aria-hidden] { display: flex; flex-shrink: 0; align-items: center; height: 1.7em; }
+.banner svg { flex-shrink: 0; width: 1.5rem; height: 1.5rem; color: var(--banner-color); }
 .banner p { min-width: 0; }
 .banner[data-type="success"] { --banner-color: var(--color-success); }
 .banner[data-type="error"] { --banner-color: var(--color-error); }
@@ -351,7 +353,15 @@ a:focus-visible { background-color: var(--color-focus-fill); color: var(--color-
   background-color: var(--color-canvas);
   border-top: 1px solid var(--color-border-on-canvas);
 }
-.action-panel .banner { flex: 1 1 16rem; }
+/* ボタンの横に出す結果は、枠と背景を付けず、アイコンと文字だけをボタンと縦の中央にそろえる */
+.action-panel .banner {
+  flex: 1 1 16rem;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+}
 
 @media (min-width: 48rem) {
   .options main { padding: 2.5rem 2rem 0; }
