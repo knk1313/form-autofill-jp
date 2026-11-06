@@ -11,14 +11,13 @@
     <main>
       <header class="page-header">
         <h1>プロフィール</h1>
-        <p>フォームに入れる内容を登録します。空の項目は入力しません。内容はこのパソコンのChromeの中にだけ保存し、外へは送りません。</p>
+        <p>フォームに入れる内容を登録します。内容はこのパソコンのChromeの中にだけ保存し、外へは送りません。</p>
       </header>
 
       <section class="card" aria-labelledby="sec-name">
         <div class="section">
           <div class="section-head">
             <h2 id="sec-name">名前</h2>
-            <p>フリガナはカタカナで登録します。ひらがなや半角カナの欄には、入れるときに変えます。</p>
           </div>
           <div class="section-body">
             <div class="field"><label for="lastName">姓</label><input class="input" id="lastName" name="lastName"></div>
@@ -35,7 +34,6 @@
         <div class="section">
           <div class="section-head">
             <h2 id="sec-contact">連絡先</h2>
-            <p>電話番号はハイフンを付けて登録すると、3つに分かれた欄にも正しく入ります。</p>
           </div>
           <div class="section-body">
             <div class="field"><label for="email">メールアドレス</label><input class="input" id="email" name="email" type="email"></div>
@@ -48,7 +46,6 @@
         <div class="section">
           <div class="section-head">
             <h2 id="sec-address">住所</h2>
-            <p>日本語のフォームに入れる住所です。</p>
           </div>
           <div class="section-body">
             <div class="field"><label for="postal">郵便番号</label><input class="input" id="postal" name="postal" inputmode="numeric"></div>
@@ -64,13 +61,12 @@
         <div class="section">
           <div class="section-head">
             <h2 id="sec-address-en">住所（英語）</h2>
-            <p>英語のフォームに入れる住所です。State（都道府県）は、上の都道府県から自動で決めます。</p>
           </div>
           <div class="section-body">
             <div class="field wide"><label for="line1En">Address line 1</label><input class="input" id="line1En" name="line1En" lang="en"></div>
             <div class="field wide"><label for="line2En">Address line 2</label><input class="input" id="line2En" name="line2En" lang="en"></div>
             <div class="field"><label for="cityEn">City</label><input class="input" id="cityEn" name="cityEn" lang="en"></div>
-            <div class="field"><span class="label" id="prefEn-label">State / Prefecture</span><output id="prefEn" aria-labelledby="prefEn-label" class="muted">都道府県を選ぶと決まります</output></div>
+            <div class="field"><span class="label" id="prefEn-label">State / Prefecture</span><output id="prefEn" aria-labelledby="prefEn-label" class="muted">—</output></div>
           </div>
         </div>
       </section>
@@ -79,7 +75,6 @@
         <div class="section">
           <div class="section-head">
             <h2 id="sec-birth">生年月日・性別</h2>
-            <p>元号を選ぶフォームには、和暦に直して入れます。</p>
           </div>
           <div class="section-body">
             <div class="field">

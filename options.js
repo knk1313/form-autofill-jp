@@ -13,7 +13,7 @@ function readForm() {
 
 function preview() {
   const p = lib.derive(readForm());
-  document.getElementById('prefEn').textContent = p.prefectureEn || '都道府県を選ぶと決まります';
+  document.getElementById('prefEn').textContent = p.prefectureEn || '—';
   const b = p.birth;
   const w = b?.wareki;
   document.getElementById('wareki').textContent = w
