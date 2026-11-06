@@ -20,12 +20,12 @@
             <h2 id="sec-name">名前</h2>
           </div>
           <div class="section-body">
-            <div class="field"><label for="lastName">姓</label><input class="input" id="lastName" name="lastName"></div>
-            <div class="field"><label for="firstName">名</label><input class="input" id="firstName" name="firstName"></div>
-            <div class="field"><label for="lastKana">セイ</label><input class="input" id="lastKana" name="lastKana" data-kana></div>
-            <div class="field"><label for="firstKana">メイ</label><input class="input" id="firstKana" name="firstKana" data-kana></div>
-            <div class="field"><label for="lastEn">姓（ローマ字）</label><input class="input" id="lastEn" name="lastEn"></div>
-            <div class="field"><label for="firstEn">名（ローマ字）</label><input class="input" id="firstEn" name="firstEn"></div>
+            <div class="field"><label for="lastName">姓</label><input class="input" id="lastName" name="lastName" placeholder="例：山田"></div>
+            <div class="field"><label for="firstName">名</label><input class="input" id="firstName" name="firstName" placeholder="例：太郎"></div>
+            <div class="field"><label for="lastKana">セイ</label><input class="input" id="lastKana" name="lastKana" placeholder="例：ヤマダ" data-kana></div>
+            <div class="field"><label for="firstKana">メイ</label><input class="input" id="firstKana" name="firstKana" placeholder="例：タロウ" data-kana></div>
+            <div class="field"><label for="lastEn">姓（ローマ字）</label><input class="input" id="lastEn" name="lastEn" placeholder="例：Yamada"></div>
+            <div class="field"><label for="firstEn">名（ローマ字）</label><input class="input" id="firstEn" name="firstEn" placeholder="例：Taro"></div>
           </div>
         </div>
       </section>
@@ -36,8 +36,8 @@
             <h2 id="sec-contact">連絡先</h2>
           </div>
           <div class="section-body">
-            <div class="field"><label for="email">メールアドレス</label><input class="input" id="email" name="email" type="email"></div>
-            <div class="field"><label for="tel">電話番号</label><input class="input" id="tel" name="tel" type="tel"></div>
+            <div class="field"><label for="email">メールアドレス</label><input class="input" id="email" name="email" placeholder="例：taro@example.com" type="email"></div>
+            <div class="field"><label for="tel">電話番号</label><input class="input" id="tel" name="tel" placeholder="例：090-1234-5678" type="tel"></div>
           </div>
         </div>
       </section>
@@ -48,11 +48,11 @@
             <h2 id="sec-address">住所</h2>
           </div>
           <div class="section-body">
-            <div class="field"><label for="postal">郵便番号</label><input class="input" id="postal" name="postal" inputmode="numeric"></div>
+            <div class="field"><label for="postal">郵便番号</label><input class="input" id="postal" name="postal" placeholder="例：100-0001" inputmode="numeric"></div>
             <div class="field"><label for="prefecture">都道府県</label><span class="select"><select id="prefecture" name="prefecture"><option value="">選択してください</option></select></span></div>
-            <div class="field"><label for="city">市区町村</label><input class="input" id="city" name="city"></div>
-            <div class="field"><label for="street">番地</label><input class="input" id="street" name="street"></div>
-            <div class="field wide"><label for="building">建物名・部屋番号</label><input class="input" id="building" name="building"></div>
+            <div class="field"><label for="city">市区町村</label><input class="input" id="city" name="city" placeholder="例：千代田区"></div>
+            <div class="field"><label for="street">番地</label><input class="input" id="street" name="street" placeholder="例：千代田1-1-1"></div>
+            <div class="field wide"><label for="building">建物名・部屋番号</label><input class="input" id="building" name="building" placeholder="例：〇〇マンション101"></div>
           </div>
         </div>
       </section>
@@ -63,9 +63,9 @@
             <h2 id="sec-address-en">住所（英語）</h2>
           </div>
           <div class="section-body">
-            <div class="field wide"><label for="line1En">Address line 1</label><input class="input" id="line1En" name="line1En" lang="en"></div>
-            <div class="field wide"><label for="line2En">Address line 2</label><input class="input" id="line2En" name="line2En" lang="en"></div>
-            <div class="field"><label for="cityEn">City</label><input class="input" id="cityEn" name="cityEn" lang="en"></div>
+            <div class="field wide"><label for="line1En">Address line 1</label><input class="input" id="line1En" name="line1En" placeholder="e.g. 1-1-1 Chiyoda" lang="en"></div>
+            <div class="field wide"><label for="line2En">Address line 2</label><input class="input" id="line2En" name="line2En" placeholder="e.g. Room 101, XX Mansion" lang="en"></div>
+            <div class="field"><label for="cityEn">City</label><input class="input" id="cityEn" name="cityEn" placeholder="e.g. Chiyoda-ku" lang="en"></div>
             <div class="field"><span class="label" id="prefEn-label">State / Prefecture</span><output id="prefEn" aria-labelledby="prefEn-label" class="muted">—</output></div>
           </div>
         </div>
