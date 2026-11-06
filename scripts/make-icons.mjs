@@ -1,4 +1,4 @@
-// アイコン（青い角丸の四角に、白い入力欄の線）を PNG で書き出す。依存なしで node だけで動く
+// アイコン（DADS のキーカラー（blue-900）の角丸の四角に、白い入力欄の線）を PNG で書き出す。依存なしで node だけで動く
 import { writeFileSync } from 'node:fs';
 import { deflateSync } from 'node:zlib';
 
@@ -18,7 +18,7 @@ const chunk = (type, data) => {
 function draw(size) {
   const S = 4; // 4x4 の超標本化でふちを滑らかにする
   const px = new Float32Array(size * size * 4);
-  const r = 0.22, blue = [11, 87, 208], white = [255, 255, 255];
+  const r = 0.22, blue = [0, 23, 193], white = [255, 255, 255];
   const inRound = (x, y, x0, y0, x1, y1, rr) => {
     const cx = Math.min(Math.max(x, x0 + rr), x1 - rr), cy = Math.min(Math.max(y, y0 + rr), y1 - rr);
     return (x - cx) ** 2 + (y - cy) ** 2 <= rr * rr && x >= x0 && x <= x1 && y >= y0 && y <= y1;

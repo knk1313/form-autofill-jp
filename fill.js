@@ -536,7 +536,7 @@
     if (!document.getElementById(MARK)) {
       const st = document.createElement('style');
       st.id = MARK;
-      st.textContent = `[${MARK}]{outline:2px solid #16a34a !important;outline-offset:1px !important;transition:outline-color .6s}`;
+      st.textContent = `[${MARK}]{outline:2px solid #197a4b !important;outline-offset:1px !important;transition:outline-color .6s}`;
       (document.head || document.documentElement).appendChild(st);
     }
     els.forEach((el) => el.setAttribute(MARK, ''));

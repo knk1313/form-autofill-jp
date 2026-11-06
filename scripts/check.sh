@@ -19,5 +19,5 @@ console.log("manifest.json: OK");
 '
 # background.js は ES モジュール。ほかはページに読み込む普通のスクリプト
 node --input-type=module --check < background.js
-for f in fill.js popup.js options.js; do node --check "$f"; done
+for f in fill.js icons.js popup.js options.js; do node --check "$f"; done
 echo "JS の構文: OK"

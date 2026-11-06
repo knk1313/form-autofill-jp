@@ -7,85 +7,124 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="options">
-  <main>
-    <h1>プロフィール</h1>
-    <p class="muted">ここに入れた内容は、このパソコンの Chrome の中（chrome.storage.local）にだけ保存します。外へは送りません。空の項目は入力しません。</p>
+  <form id="profile" autocomplete="off" novalidate>
+    <main>
+      <header class="page-header">
+        <h1>プロフィール</h1>
+        <p>フォームに入れる内容を登録します。空の項目は入力しません。内容はこのパソコンのChromeの中にだけ保存し、外へは送りません。</p>
+      </header>
 
-    <form id="profile" autocomplete="off">
-      <fieldset>
-        <legend>名前</legend>
-        <div class="grid">
-          <label>姓<input name="lastName" placeholder="山田"></label>
-          <label>名<input name="firstName" placeholder="太郎"></label>
-          <label>セイ<input name="lastKana" placeholder="ヤマダ" data-kana></label>
-          <label>メイ<input name="firstKana" placeholder="タロウ" data-kana></label>
-          <label>Last name（ローマ字）<input name="lastEn" placeholder="Yamada"></label>
-          <label>First name（ローマ字）<input name="firstEn" placeholder="Taro"></label>
+      <section class="card" aria-labelledby="sec-name">
+        <div class="section">
+          <div class="section-head">
+            <h2 id="sec-name">名前</h2>
+            <p>フリガナはカタカナで登録します。ひらがなや半角カナの欄には、入れるときに変えます。</p>
+          </div>
+          <div class="section-body">
+            <div class="field"><label for="lastName">姓</label><input class="input" id="lastName" name="lastName"></div>
+            <div class="field"><label for="firstName">名</label><input class="input" id="firstName" name="firstName"></div>
+            <div class="field"><label for="lastKana">セイ</label><input class="input" id="lastKana" name="lastKana" data-kana></div>
+            <div class="field"><label for="firstKana">メイ</label><input class="input" id="firstKana" name="firstKana" data-kana></div>
+            <div class="field"><label for="lastEn">姓（ローマ字）</label><input class="input" id="lastEn" name="lastEn"></div>
+            <div class="field"><label for="firstEn">名（ローマ字）</label><input class="input" id="firstEn" name="firstEn"></div>
+          </div>
         </div>
-        <p class="hint">フリガナはカタカナで登録します（ひらがなで入れても自動で直します）。ひらがな・半角カナの欄には、入れるときに変えます。</p>
-      </fieldset>
+      </section>
 
-      <fieldset>
-        <legend>連絡先</legend>
-        <div class="grid">
-          <label>メールアドレス<input name="email" type="email" placeholder="taro@example.com"></label>
-          <label>電話番号<input name="tel" type="tel" placeholder="090-1234-5678"></label>
+      <section class="card" aria-labelledby="sec-contact">
+        <div class="section">
+          <div class="section-head">
+            <h2 id="sec-contact">連絡先</h2>
+            <p>電話番号はハイフンを付けて登録すると、3つに分かれた欄にも正しく入ります。</p>
+          </div>
+          <div class="section-body">
+            <div class="field"><label for="email">メールアドレス</label><input class="input" id="email" name="email" type="email"></div>
+            <div class="field"><label for="tel">電話番号</label><input class="input" id="tel" name="tel" type="tel"></div>
+          </div>
         </div>
-        <p class="hint">電話番号はハイフンつきで登録すると、3つに分かれた欄にも正しく入ります。</p>
-      </fieldset>
+      </section>
 
-      <fieldset>
-        <legend>住所（日本語）</legend>
-        <div class="grid">
-          <label>郵便番号<input name="postal" placeholder="100-0001" inputmode="numeric"></label>
-          <label>都道府県<select name="prefecture"><option value="">選んでください</option></select></label>
-          <label>市区町村<input name="city" placeholder="千代田区"></label>
-          <label>番地<input name="street" placeholder="千代田1-1-1"></label>
-          <label class="wide">建物名・部屋番号<input name="building" placeholder="〇〇マンション101"></label>
+      <section class="card" aria-labelledby="sec-address">
+        <div class="section">
+          <div class="section-head">
+            <h2 id="sec-address">住所</h2>
+            <p>日本語のフォームに入れる住所です。</p>
+          </div>
+          <div class="section-body">
+            <div class="field"><label for="postal">郵便番号</label><input class="input" id="postal" name="postal" inputmode="numeric"></div>
+            <div class="field"><label for="prefecture">都道府県</label><span class="select"><select id="prefecture" name="prefecture"><option value="">選択してください</option></select></span></div>
+            <div class="field"><label for="city">市区町村</label><input class="input" id="city" name="city"></div>
+            <div class="field"><label for="street">番地</label><input class="input" id="street" name="street"></div>
+            <div class="field wide"><label for="building">建物名・部屋番号</label><input class="input" id="building" name="building"></div>
+          </div>
         </div>
-      </fieldset>
+      </section>
 
-      <fieldset>
-        <legend>住所（英語のフォーム用）</legend>
-        <div class="grid">
-          <label class="wide">Address line 1<input name="line1En" placeholder="1-1-1 Chiyoda"></label>
-          <label class="wide">Address line 2<input name="line2En" placeholder="Room 101, XX Mansion"></label>
-          <label>City<input name="cityEn" placeholder="Chiyoda-ku"></label>
-          <label>State / Prefecture<output id="prefEn" class="muted">（都道府県から自動）</output></label>
+      <section class="card" aria-labelledby="sec-address-en">
+        <div class="section">
+          <div class="section-head">
+            <h2 id="sec-address-en">住所（英語）</h2>
+            <p>英語のフォームに入れる住所です。State（都道府県）は、上の都道府県から自動で決めます。</p>
+          </div>
+          <div class="section-body">
+            <div class="field wide"><label for="line1En">Address line 1</label><input class="input" id="line1En" name="line1En" lang="en"></div>
+            <div class="field wide"><label for="line2En">Address line 2</label><input class="input" id="line2En" name="line2En" lang="en"></div>
+            <div class="field"><label for="cityEn">City</label><input class="input" id="cityEn" name="cityEn" lang="en"></div>
+            <div class="field"><span class="label" id="prefEn-label">State / Prefecture</span><output id="prefEn" aria-labelledby="prefEn-label" class="muted">都道府県を選ぶと決まります</output></div>
+          </div>
         </div>
-      </fieldset>
+      </section>
 
-      <fieldset>
-        <legend>生年月日・性別</legend>
-        <div class="grid">
-          <label>生年月日<input name="birthday" type="date"></label>
-          <label>性別
-            <select name="gender">
-              <option value="">入力しない</option>
-              <option value="male">男性</option>
-              <option value="female">女性</option>
-              <option value="other">その他</option>
-            </select>
-          </label>
+      <section class="card" aria-labelledby="sec-birth">
+        <div class="section">
+          <div class="section-head">
+            <h2 id="sec-birth">生年月日・性別</h2>
+            <p>元号を選ぶフォームには、和暦に直して入れます。</p>
+          </div>
+          <div class="section-body">
+            <div class="field">
+              <label for="birthday">生年月日</label>
+              <input class="input" id="birthday" name="birthday" type="date" aria-describedby="wareki">
+              <p id="wareki" class="support"></p>
+            </div>
+            <div class="field">
+              <label for="gender">性別</label>
+              <span class="select">
+                <select id="gender" name="gender">
+                  <option value="">入力しない</option>
+                  <option value="male">男性</option>
+                  <option value="female">女性</option>
+                  <option value="other">その他</option>
+                </select>
+              </span>
+            </div>
+          </div>
         </div>
-        <p id="wareki" class="hint"></p>
-      </fieldset>
+      </section>
 
-      <fieldset>
-        <legend>勤務先</legend>
-        <div class="grid">
-          <label>会社名<input name="company"></label>
-          <label>部署<input name="department"></label>
+      <section class="card" aria-labelledby="sec-work">
+        <div class="section">
+          <div class="section-head">
+            <h2 id="sec-work">勤務先</h2>
+          </div>
+          <div class="section-body">
+            <div class="field"><label for="company">会社名</label><input class="input" id="company" name="company"></div>
+            <div class="field"><label for="department">部署</label><input class="input" id="department" name="department"></div>
+          </div>
         </div>
-      </fieldset>
+      </section>
 
-      <div class="actions">
-        <button class="primary" type="submit">保存</button>
-        <span id="saved" role="status" aria-live="polite"></span>
+      <div class="action-panel">
+        <button class="button" type="submit">保存する</button>
+        <div id="saved" class="banner" role="status" hidden>
+          <span aria-hidden="true"></span>
+          <p></p>
+        </div>
       </div>
-    </form>
-  </main>
+    </main>
+  </form>
   <script src="fill.js"></script>
+  <script src="icons.js"></script>
   <script src="options.js"></script>
 </body>
 </html>
