@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>日本語フォームの見本</title>
+  <style>body{font-family:sans-serif;max-width:760px;margin:24px auto;padding:0 16px}th{text-align:left;width:9em;font-weight:normal}td,th{padding:4px}label{display:block;margin:8px 0}</style>
+</head>
+<body>
+  <!-- data-expect は、テスト用のプロフィール（test/profile.json）で入るべき値 -->
+  <h1>日本語フォームの見本</h1>
+
+  <h2>表の形のフォーム</h2>
+  <form id="table-form">
+    <table>
+      <tr><th>お名前</th><td>姓 <input name="name1" data-expect="山田"> 名 <input name="name2" data-expect="太郎"></td></tr>
+      <tr><th>フリガナ</th><td><input name="kana1" placeholder="ヤマダ" data-expect="ヤマダ"><input name="kana2" placeholder="タロウ" data-expect="タロウ"></td></tr>
+      <tr><th>ふりがな</th><td><input name="hira" data-expect="やまだ　たろう"></td></tr>
+      <tr><th>メールアドレス</th><td><input name="mail" data-expect="taro@example.com"></td></tr>
+      <tr><th>メールアドレス（確認）</th><td><input name="mail2" data-expect="taro@example.com"></td></tr>
+      <tr><th>電話番号</th><td><input name="tel1" size="4" data-expect="090">-<input name="tel2" size="4" data-expect="1234">-<input name="tel3" size="4" data-expect="5678"></td></tr>
+      <tr><th>郵便番号</th><td>〒<input name="zip1" size="3" data-expect="100">-<input name="zip2" size="4" data-expect="0001"></td></tr>
+      <tr><th>都道府県</th><td><select name="pref" data-expect="13"><option value="">選択してください</option><option value="1">北海道</option><option value="13">東京都</option><option value="27">大阪府</option></select></td></tr>
+      <tr><th>市区町村</th><td><input name="addr_city" data-expect="千代田区"></td></tr>
+      <tr><th>番地</th><td><input name="addr_street" data-expect="千代田1-1-1"></td></tr>
+      <tr><th>建物名</th><td><input name="addr_bld" data-expect="〇〇マンション101"></td></tr>
+      <tr><th>生年月日</th><td>
+        <select name="era" data-expect="H"><option value="">--</option><option value="S">昭和</option><option value="H">平成</option><option value="R">令和</option></select>
+        <select name="by" data-expect="2"><option value="">--</option><option value="1">元</option><option value="2">2</option><option value="3">3</option><option value="64">64</option></select>年
+        <select name="bm" data-expect="1"><option value="">--</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option></select>月
+        <select name="bd" data-expect="23"><option value="">--</option><option>1</option><option>2</option><option>22</option><option>23</option><option>24</option><option>28</option><option>29</option><option>30</option><option>31</option></select>日
+      </td></tr>
+      <tr><th>性別</th><td><label><input type="radio" name="sex" value="1" data-expect-checked="true">男性</label><label><input type="radio" name="sex" value="2" data-expect-checked="false">女性</label></td></tr>
+      <tr><th>会社名</th><td><input name="company" data-expect="株式会社サンプル"></td></tr>
+      <tr><th>部署名</th><td><input name="busho" data-expect="開発部"></td></tr>
+      <tr><th>パスワード</th><td><input type="password" name="pw" data-expect=""></td></tr>
+      <tr><th>お問い合わせ内容</th><td><textarea name="body" data-expect=""></textarea></td></tr>
+    </table>
+  </form>
+
+  <h2>ラベルの形のフォーム</h2>
+  <form id="label-form">
+    <label for="fullname">氏名</label><input id="fullname" data-expect="山田　太郎">
+    <label for="kana">フリガナ（半角カナ）</label><input id="kana" data-expect="ﾔﾏﾀﾞ ﾀﾛｳ">
+    <label>姓（ローマ字）<input name="last_en" data-expect="Yamada"></label>
+    <label>名（ローマ字）<input name="first_en" data-expect="Taro"></label>
+    <label for="addr">住所</label><input id="addr" data-expect="東京都千代田区千代田1-1-1 〇〇マンション101">
+    <label>電話番号（ハイフンなし）<input name="phone" data-expect="09012345678"></label>
+    <label>郵便番号<input name="zip" maxlength="7" data-expect="1000001"></label>
+    <label>生年月日<input name="birth" placeholder="1990/01/01" data-expect="1990/01/23"></label>
+    <label>ユーザー名<input name="login_id" data-expect=""></label>
+    <label>件名<input name="subject" data-expect=""></label>
+  </form>
+
+  <h2>定義リストの形のフォーム</h2>
+  <form id="dl-form">
+    <dl>
+      <dt>氏名</dt><dd><input name="sei" placeholder="山田" data-expect="山田"><input name="mei" placeholder="太郎" data-expect="太郎"></dd>
+      <dt>氏名（かな）</dt><dd><input name="sei_kana" placeholder="やまだ" data-expect="やまだ"><input name="mei_kana" placeholder="たろう" data-expect="たろう"></dd>
+      <dt>都道府県</dt><dd><select name="todofuken" data-expect="東京"><option value="">-----</option><option>北海道</option><option>東京</option><option>京都</option></select></dd>
+      <dt>住所1</dt><dd><input name="address1" data-expect="千代田区"></dd>
+      <dt>住所2</dt><dd><input name="address2" data-expect="千代田1-1-1"></dd>
+      <dt>住所3</dt><dd><input name="address3" data-expect="〇〇マンション101"></dd>
+      <dt>携帯電話</dt><dd><input type="tel" name="mobile" placeholder="例：09012345678" data-expect="09012345678"></dd>
+      <dt>生年月日</dt><dd><input name="birth_y" size="4" data-expect="1990">年<input name="birth_m" size="2" data-expect="01">月<input name="birth_d" size="2" data-expect="23">日</dd>
+      <dt>性別</dt><dd><label><input type="radio" name="gender" value="female" data-expect-checked="false">女性</label><label><input type="radio" name="gender" value="male" data-expect-checked="true">男性</label></dd>
+      <dt>すでに入っている欄</dt><dd><input name="nickname_prefilled" value="そのまま" data-expect="そのまま"></dd>
+      <dt>メール</dt><dd><input name="contact_mail" value="old@example.com" data-expect="old@example.com"></dd>
+    </dl>
+  </form>
+</body>
+</html>

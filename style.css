@@ -1,0 +1,72 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1c;
+  --muted: #5f6368;
+  --line: #d0d4da;
+  --field: #ffffff;
+  --accent: #0b57d0;
+  --accent-fg: #ffffff;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f1f22;
+    --fg: #e8e8ea;
+    --muted: #a0a4aa;
+    --line: #44474d;
+    --field: #2a2a2e;
+    --accent: #8ab4f8;
+    --accent-fg: #0b1b33;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 14px/1.6 system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+a { color: var(--accent); }
+.muted { color: var(--muted); }
+
+button.primary {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button.primary:disabled { opacity: .6; cursor: default; }
+
+/* ポップアップ */
+.popup { width: 300px; padding: 14px 16px; }
+.popup p { margin: 0 0 10px; }
+.popup button.primary { width: 100%; }
+.popup .check { display: flex; gap: 6px; align-items: center; margin: 10px 0 6px; font-size: 13px; }
+.popup #status:empty { display: none; }
+.popup .foot { display: flex; justify-content: space-between; font-size: 12px; margin: 8px 0 0; }
+
+/* 設定画面 */
+.options main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+.options h1 { font-size: 22px; margin: 0 0 4px; }
+fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px 14px; margin: 16px 0; }
+legend { font-weight: 700; padding: 0 6px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px 14px; }
+.grid label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.grid .wide { grid-column: 1 / -1; }
+input, select {
+  font: inherit;
+  color: var(--fg);
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 7px 9px;
+}
+output { padding: 7px 0; }
+.hint { font-size: 12px; color: var(--muted); margin: 8px 0 0; }
+.hint:empty { display: none; }
+.actions { display: flex; gap: 12px; align-items: center; position: sticky; bottom: 0; padding: 12px 0; background: var(--bg); }

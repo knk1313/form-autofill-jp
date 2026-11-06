@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>English form sample</title>
+  <style>body{font-family:sans-serif;max-width:760px;margin:24px auto;padding:0 16px}label{display:block;margin:8px 0}</style>
+</head>
+<body>
+  <!-- data-expect は、テスト用のプロフィール（test/profile.json）で入るべき値 -->
+  <h1>English form sample</h1>
+
+  <h2>Checkout</h2>
+  <form id="checkout">
+    <label>First name <input name="fname" autocomplete="given-name" data-expect="Taro"></label>
+    <label>Last name <input name="lname" autocomplete="family-name" data-expect="Yamada"></label>
+    <label>Email <input type="email" name="email" data-expect="taro@example.com"></label>
+    <label>Phone <input type="tel" name="phone" data-expect="090-1234-5678"></label>
+    <label>Address line 1 <input name="address1" data-expect="1-1-1 Chiyoda"></label>
+    <label>Address line 2 <input name="address2" data-expect="Room 101"></label>
+    <label>City <input name="city" data-expect="Chiyoda-ku"></label>
+    <label>State / Province <input name="state" data-expect="Tokyo"></label>
+    <label>ZIP / Postal code <input name="zip" data-expect="100-0001"></label>
+    <label>Country
+      <select name="country" data-expect="JP"><option value="">Select…</option><option value="US">United States</option><option value="JP">Japan</option></select>
+    </label>
+    <fieldset>
+      <legend>Date of birth</legend>
+      <select name="dob_month" data-expect="1"><option value="">Month</option><option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option><option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option><option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select>
+      <select name="dob_day" data-expect="23"><option value="">Day</option><option>1</option><option>22</option><option>23</option><option>31</option></select>
+      <select name="dob_year" data-expect="1990"><option value="">Year</option><option>2000</option><option>1991</option><option>1990</option><option>1989</option></select>
+    </fieldset>
+    <label>Gender
+      <select name="gender" data-expect="m"><option value="">Prefer not to say</option><option value="f">Female</option><option value="m">Male</option></select>
+    </label>
+    <label>Company <input name="company" data-expect="株式会社サンプル"></label>
+    <label>Search <input type="search" name="q" data-expect=""></label>
+  </form>
+
+  <h2>Contact</h2>
+  <form id="contact">
+    <label>Full name <input name="name" data-expect="Taro Yamada"></label>
+    <label>Mailing address <textarea name="address" data-expect="1-1-1 Chiyoda, Room 101, Chiyoda-ku, Tokyo"></textarea></label>
+    <label>Birthday <input name="bday" placeholder="MM/DD/YYYY" data-expect="01/23/1990"></label>
+    <label>Message <textarea name="message" data-expect=""></textarea></label>
+  </form>
+</body>
+</html>

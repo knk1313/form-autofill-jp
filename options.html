@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プロフィール - Form Autofill JP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="options">
+  <main>
+    <h1>プロフィール</h1>
+    <p class="muted">ここに入れた内容は、このパソコンの Chrome の中（chrome.storage.local）にだけ保存します。外へは送りません。空の項目は入力しません。</p>
+
+    <form id="profile" autocomplete="off">
+      <fieldset>
+        <legend>名前</legend>
+        <div class="grid">
+          <label>姓<input name="lastName" placeholder="山田"></label>
+          <label>名<input name="firstName" placeholder="太郎"></label>
+          <label>セイ<input name="lastKana" placeholder="ヤマダ" data-kana></label>
+          <label>メイ<input name="firstKana" placeholder="タロウ" data-kana></label>
+          <label>Last name（ローマ字）<input name="lastEn" placeholder="Yamada"></label>
+          <label>First name（ローマ字）<input name="firstEn" placeholder="Taro"></label>
+        </div>
+        <p class="hint">フリガナはカタカナで登録します（ひらがなで入れても自動で直します）。ひらがな・半角カナの欄には、入れるときに変えます。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>連絡先</legend>
+        <div class="grid">
+          <label>メールアドレス<input name="email" type="email" placeholder="taro@example.com"></label>
+          <label>電話番号<input name="tel" type="tel" placeholder="090-1234-5678"></label>
+        </div>
+        <p class="hint">電話番号はハイフンつきで登録すると、3つに分かれた欄にも正しく入ります。</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>住所（日本語）</legend>
+        <div class="grid">
+          <label>郵便番号<input name="postal" placeholder="100-0001" inputmode="numeric"></label>
+          <label>都道府県<select name="prefecture"><option value="">選んでください</option></select></label>
+          <label>市区町村<input name="city" placeholder="千代田区"></label>
+          <label>番地<input name="street" placeholder="千代田1-1-1"></label>
+          <label class="wide">建物名・部屋番号<input name="building" placeholder="〇〇マンション101"></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>住所（英語のフォーム用）</legend>
+        <div class="grid">
+          <label class="wide">Address line 1<input name="line1En" placeholder="1-1-1 Chiyoda"></label>
+          <label class="wide">Address line 2<input name="line2En" placeholder="Room 101, XX Mansion"></label>
+          <label>City<input name="cityEn" placeholder="Chiyoda-ku"></label>
+          <label>State / Prefecture<output id="prefEn" class="muted">（都道府県から自動）</output></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>生年月日・性別</legend>
+        <div class="grid">
+          <label>生年月日<input name="birthday" type="date"></label>
+          <label>性別
+            <select name="gender">
+              <option value="">入力しない</option>
+              <option value="male">男性</option>
+              <option value="female">女性</option>
+              <option value="other">その他</option>
+            </select>
+          </label>
+        </div>
+        <p id="wareki" class="hint"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>勤務先</legend>
+        <div class="grid">
+          <label>会社名<input name="company"></label>
+          <label>部署<input name="department"></label>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button class="primary" type="submit">保存</button>
+        <span id="saved" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+  </main>
+  <script src="fill.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

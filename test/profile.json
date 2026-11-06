@@ -1,0 +1,22 @@
+{
+  "lastName": "山田",
+  "firstName": "太郎",
+  "lastKana": "ヤマダ",
+  "firstKana": "タロウ",
+  "lastEn": "Yamada",
+  "firstEn": "Taro",
+  "email": "taro@example.com",
+  "tel": "090-1234-5678",
+  "postal": "100-0001",
+  "prefecture": "東京都",
+  "city": "千代田区",
+  "street": "千代田1-1-1",
+  "building": "〇〇マンション101",
+  "line1En": "1-1-1 Chiyoda",
+  "line2En": "Room 101",
+  "cityEn": "Chiyoda-ku",
+  "birthday": "1990-01-23",
+  "gender": "male",
+  "company": "株式会社サンプル",
+  "department": "開発部"
+}
