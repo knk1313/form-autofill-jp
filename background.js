@@ -30,7 +30,8 @@ async function fillTab(tabId, options = {}) {
 
 async function showBadge(tabId, result) {
   const text = result.error ? '!' : String(result.filled);
-  await chrome.action.setBadgeBackgroundColor({ tabId, color: result.error || !result.filled ? '#b91c1c' : '#15803d' });
+  // DADS の error（red-900）と success（green-800）
+  await chrome.action.setBadgeBackgroundColor({ tabId, color: result.error || !result.filled ? '#ce0000' : '#197a4b' });
   await chrome.action.setBadgeText({ tabId, text });
   setTimeout(() => chrome.action.setBadgeText({ tabId, text: '' }).catch(() => {}), 3000);
 }
