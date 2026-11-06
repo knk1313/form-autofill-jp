@@ -1,4 +1,5 @@
-// ポップアップのボタンとショートカットから呼ばれ、開いているタブのフォームに入力する
+// ツールバーのアイコンでページの上にトップバー（topbar.js）を出し、そのボタンから呼ばれてフォームに入力する。
+// ショートカット（Alt+Shift+F）では、トップバーを出さずにすぐ入力する。
 
 async function fillTab(tabId, options = {}) {
   const { profile } = await chrome.storage.local.get('profile');
@@ -41,9 +42,25 @@ chrome.commands.onCommand.addListener(async (command, tab) => {
   await showBadge(tab.id, result);
 });
 
-chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
-  if (msg?.type !== 'fill') return false;
-  fillTab(msg.tabId, { overwrite: !!msg.overwrite }).then(sendResponse);
+// アイコンが押されたら、トップバーを出す（出ていれば閉じる。切り替えは topbar.js の中で行う）
+chrome.action.onClicked.addListener(async (tab) => {
+  if (tab.id == null) return;
+  try {
+    await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['topbar.js'] });
+  } catch {
+    // chrome:// のページなど、拡張機能が入れないページ
+    await showBadge(tab.id, { error: 'cannot-access' });
+  }
+});
+
+// トップバーからの依頼
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg?.type === 'open-options') {
+    chrome.runtime.openOptionsPage();
+    return false;
+  }
+  if (msg?.type !== 'fill' || sender.tab?.id == null) return false;
+  fillTab(sender.tab.id, { overwrite: !!msg.overwrite }).then(sendResponse);
   return true;
 });
 
