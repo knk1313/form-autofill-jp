@@ -153,6 +153,7 @@ a:focus-visible { background-color: var(--color-focus-fill); color: var(--color-
   background-color: var(--color-primary);
   color: var(--color-text-on-primary);
   font: inherit;
+  font-size: 1.0625rem;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.02em;
