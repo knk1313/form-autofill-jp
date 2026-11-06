@@ -331,6 +331,11 @@ a:focus-visible { background-color: var(--color-focus-fill); color: var(--color-
 .field { display: grid; row-gap: 0.5rem; min-width: 0; }
 .field > label, .field > .label { justify-self: start; font-size: 1.0625rem; font-weight: 700; color: var(--color-text-strong); }
 .field .support { color: var(--color-text-muted); }
+/* 日付の欄（DatePicker の入力欄の幅 w-44） */
+.input.date { width: 11rem; font-variant-numeric: tabular-nums; }
+.input[aria-invalid="true"] { border-color: var(--color-error); }
+.field .error { color: var(--color-error); line-height: 1.3; letter-spacing: 0; }
+.field .error[hidden] { display: none; }
 .field output { min-height: var(--control-md); display: flex; align-items: center; }
 
 /* 保存のボタンを置く下の帯（ActionPanel） */

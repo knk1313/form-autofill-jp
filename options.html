@@ -78,8 +78,9 @@
           </div>
           <div class="section-body">
             <div class="field">
-              <label for="birthday">生年月日</label>
-              <input class="input" id="birthday" name="birthday" type="date" aria-describedby="wareki">
+              <label for="birthday">生年月日（西暦）</label>
+              <input class="input date" id="birthday" name="birthday" placeholder="例：1990-01-23" inputmode="numeric" autocomplete="off" aria-describedby="wareki birthday-error">
+              <p id="birthday-error" class="error" hidden></p>
               <p id="wareki" class="support"></p>
             </div>
             <div class="field">
