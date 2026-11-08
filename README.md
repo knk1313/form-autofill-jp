@@ -79,7 +79,3 @@ npm i --no-save jsdom@24 && node test/run.cjs  # 見本のフォームに入れ�
 - `chrome://`のページやChromeウェブストアでは動きません
 - 別のドメインから埋め込まれたフォーム（iframe）には入らないことがあります
 - 複数のプロフィール（個人用・仕事用など）にはまだ対応していません
-
-## ライセンス
-
-[MIT License](LICENSE)
